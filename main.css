@@ -1,0 +1,44 @@
+span {
+  position: fixed;
+  display: inline-block;
+  animation-duration: 2s;
+  /*animation-name: slidein;*/
+  color: white;
+  background-color: black;
+  width: 14px;
+  height: 16px;
+  text-align: center;
+}
+
+span:hover{
+  animation-duration: 1s;
+  animation-name: slideout !important;
+}
+
+@keyframes slideout {
+  to {
+    left: 0;
+    top: 0;
+  }
+}
+/*
+@keyframes slidein1 {
+  from {
+    left: 0;
+    top: 0;
+  }
+}
+
+@keyframes slidein2 {
+  from {
+    left: 500px;
+    top: 300px;
+  }
+}
+
+@keyframes slidein3 {
+  from {
+    left: 238px;
+    top: 343px;
+  }
+}*/
