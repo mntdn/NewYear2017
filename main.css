@@ -1,18 +1,52 @@
 span {
-  position: fixed;
-  display: inline-block;
-  animation-duration: 2s;
-  /*animation-name: slidein;*/
-  color: white;
-  background-color: black;
-  width: 14px;
-  height: 16px;
-  text-align: center;
+    position: fixed;
+    z-index: 4;
+    display: inline-block;
+    animation-duration: 2s;
+    /*transition-timing-function: cubic-bezier(0.64, 0.57, 0.67, 1.53);
+    transition-duration: 2.9s;
+    transition: 1s;*/
+    animation-timing-function: cubic-bezier(1.000, -0.530, 0.405, 1.425);
+    /*animation-timing-function: cubic-bezier(0.64, 0.57, 0.67, 1.53);*/
+    color: white;
+    background-color: black;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    background-color: red;
 }
 
 span:hover{
-  animation-duration: 1s;
-  animation-name: slideout !important;
+    animation-duration: 1s;
+    animation-name: slideout !important;
+}
+
+span.ball {
+    border-radius: 7px;
+    background-color: green;
+}
+
+.snowflake {
+    position: fixed;
+    z-index: 1;
+    top:-20px;
+    left:0;
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+}
+
+.snowflake2 {
+    position: fixed;
+    z-index: 1;
+    top:500px;
+    left:100px;
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    transition-property: top, left;
+    transition-duration: 2s, 2s;
+    transition-timing-function: linear, cubic-bezier(0.64, 0.57, 0.67, 1.53);
 }
 
 @keyframes slideout {
