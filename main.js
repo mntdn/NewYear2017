@@ -83,26 +83,36 @@ drawLetter(letter7, "7", startLeft + 240, startTop);
 
 var snowflakesDuration = [];
 
-for(var i = 0; i < 60; i++){
+for(var i = 0; i < 90; i++){
     var el = d.createElement('div');
+	var randomLeft = getRandomInt(10, window.innerWidth - 10);
+	var randomOpacity = Math.random();
     el.className = "snowflake";
-    el.style.cssText = 'left:' + getRandomInt(10, window.innerWidth - 10) + 'px; opacity:'+Math.random();
+    el.style.cssText = 'left:' + randomLeft + 'px; opacity:'+randomOpacity;
     el.setAttribute("id", "snow" + i);
+	el.setAttribute("data-rand-left", randomLeft);
+	el.setAttribute("data-rand-opacity", randomOpacity);
     d.body.appendChild(el);
-    snowflakesDuration[i] = getRandomInt(2000,4000);
+    snowflakesDuration[i] = getRandomInt(2000,5000);
 }
 
 function snowAnimation(snowId){
     var el = d.getElementById("snow" + snowId);
     el.className = "snowflake";
-    el.style.cssText = 'left:' + getRandomInt(10, window.innerWidth - 10) + 'px; opacity:'+Math.random();
+	var randomLeft = getRandomInt(10, window.innerWidth - 10);
+	var randomOpacity = Math.random()
+    el.style.cssText = 'left:' + randomLeft + 'px; opacity:'+ randomOpacity;
+	el.setAttribute("data-rand-left", randomLeft);
+	el.setAttribute("data-rand-opacity", randomOpacity);
     window.setTimeout(function(){
         var el = d.getElementById("snow" + snowId);
-        el.className = "snowflake2";
+        el.className = "snowflake" + getRandomInt(2,5);
         var duration = snowflakesDuration[snowId]/1000;
+		var snowflakeSize = getRandomInt(14,24);
         el.style.cssText = 'top:' + window.innerHeight + 'px;\
-            left:' + (parseInt(window.getComputedStyle(el,null).getPropertyValue("left").replace('px',''), 10) + 100) + 'px;\
-            opacity:'+window.getComputedStyle(el,null).getPropertyValue("opacity")+';\
+            left:' + (parseInt(el.getAttribute("data-rand-left"), 10) + 100) + 'px;\
+			width: ' + snowflakeSize + 'px; height: ' + snowflakeSize + 'px; background-size: '+ snowflakeSize + 'px;\
+            opacity:'+el.getAttribute("data-rand-opacity")+';\
             transition-delay:' + getRandom(0,1) + 's;\
             transition-duration: '+duration+'s, '+duration+'s;';
     }, 50);
@@ -111,14 +121,16 @@ function snowAnimation(snowId){
 var intervalID = window.setTimeout(function(){
     for(var i = 0; i < snowflakesDuration.length; i++){
         var el = d.getElementById("snow" + i);
-        el.className = "snowflake2";
+        el.className = "snowflake" + getRandomInt(2,5);
         var duration = snowflakesDuration[i]/1000;
+		var snowflakeSize = getRandomInt(14,24);
         el.style.cssText = 'top:' + window.innerHeight + 'px;\
-            left:' + (parseInt(window.getComputedStyle(el,null).getPropertyValue("left").replace('px',''), 10) + 100) + 'px;\
-            opacity:'+window.getComputedStyle(el,null).getPropertyValue("opacity")+';\
+            left:' + (parseInt(el.getAttribute("data-rand-left"), 10) + 100) + 'px;\
+			width: ' + snowflakeSize + 'px; height: ' + snowflakeSize + 'px; background-size: '+ snowflakeSize + 'px;\
+            opacity:'+el.getAttribute("data-rand-opacity")+';\
             transition-delay:' + getRandom(0,1) + 's;\
             transition-duration: '+duration+'s, '+duration+'s;';
         var snowId = i;
-        window.setInterval(snowAnimation, snowflakesDuration[snowId], snowId);
+        window.setInterval(snowAnimation, snowflakesDuration[snowId] + 500, snowId);
     }
 }, 100);

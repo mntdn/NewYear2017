@@ -26,27 +26,31 @@ span.ball {
     background-color: green;
 }
 
-.snowflake {
+.snowflake, .snowflake2, .snowflake3, .snowflake4, .snowflake5 {
     position: fixed;
     z-index: 1;
-    top:-20px;
-    left:0;
+    top:-30px;
     width: 20px;
     height: 20px;
-    background-color: blue;
+    background-image: url(snowflake.png);
+	background-size: 20px;
 }
 
 .snowflake2 {
-    position: fixed;
-    z-index: 1;
-    top:500px;
-    left:100px;
-    width: 20px;
-    height: 20px;
-    background-color: blue;
     transition-property: top, left;
-    transition-duration: 2s, 2s;
     transition-timing-function: linear, cubic-bezier(0.64, 0.57, 0.67, 1.53);
+}
+.snowflake3 {
+    transition-property: top, left;
+    transition-timing-function: linear, cubic-bezier(0.47, -0.8, 0.46, 1.37);
+}
+.snowflake4 {
+    transition-property: top, left;
+    transition-timing-function: linear, cubic-bezier(1, -0.58, 0.46, 1.6);
+}
+.snowflake5 {
+    transition-property: top, left;
+    transition-timing-function: linear, cubic-bezier(0.47, -0.8, 0.11, 1.6);
 }
 
 @keyframes slideout {
