@@ -83,7 +83,13 @@ drawLetter(letter7, "7", startLeft + 240, startTop);
 
 var snowflakesDuration = [];
 
-for(var i = 0; i < 90; i++){
+window.onload = function() {
+    window.setTimeout(function() {
+        document.getElementById("message").innerHTML = "Bonne année";
+    }, 2500);
+};
+
+for(var i = 0; i < 190; i++){
     var el = d.createElement('div');
 	var randomLeft = getRandomInt(10, window.innerWidth - 10);
 	var randomOpacity = Math.random();

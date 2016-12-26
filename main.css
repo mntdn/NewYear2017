@@ -1,3 +1,16 @@
+body{
+    background-color: #0B11BD;
+    font-family: 'Rajdhani', sans-serif;
+    font-style: italic;
+}
+
+div#message {
+    text-align: center;
+    font-size: 120px;
+    color: white;
+    margin-top: 40px;
+}
+
 span {
     position: fixed;
     z-index: 4;
@@ -23,7 +36,7 @@ span:hover{
 
 span.ball {
     border-radius: 7px;
-    background-color: green;
+    background-color: white;
 }
 
 .snowflake, .snowflake2, .snowflake3, .snowflake4, .snowflake5 {
@@ -32,7 +45,7 @@ span.ball {
     top:-30px;
     width: 20px;
     height: 20px;
-    background-image: url(snowflake.png);
+    background-image: url(snowflakeWhite.png);
 	background-size: 20px;
 }
 
