@@ -1,14 +1,5 @@
 body{
     background-color: #0B11BD;
-    font-family: 'Rajdhani', sans-serif;
-    font-style: italic;
-}
-
-div#message {
-    text-align: center;
-    font-size: 120px;
-    color: white;
-    margin-top: 40px;
 }
 
 span {
@@ -26,17 +17,13 @@ span {
     width: 14px;
     height: 14px;
     text-align: center;
-    background-color: red;
+    background-color: white;
+    border-radius: 7px;
 }
 
 span:hover{
     animation-duration: 1s;
     animation-name: slideout !important;
-}
-
-span.ball {
-    border-radius: 7px;
-    background-color: white;
 }
 
 .snowflake, .snowflake2, .snowflake3, .snowflake4, .snowflake5 {

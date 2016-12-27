@@ -11,75 +11,130 @@ function getRandom(min, max) {
 }
 
 var d = document;
-var letter0 = [
-  [0,1,1,1,0],
-  [1,0,0,0,1],
-  [1,0,0,0,1],
-  [1,0,0,0,1],
-  [1,0,0,0,1],
-  [1,0,0,0,1],
-  [1,0,0,0,1],
-  [0,1,1,1,0],
-];
-var letter1 = [
-  [0,0,1,0,0],
-  [0,1,1,0,0],
-  [0,0,1,0,0],
-  [0,0,1,0,0],
-  [0,0,1,0,0],
-  [0,0,1,0,0],
-  [0,0,1,0,0],
-  [0,1,1,1,0],
-];
-var letter2 = [
-  [0,1,1,1,0],
-  [1,0,0,0,1],
-  [0,0,0,0,1],
-  [0,0,0,1,0],
-  [0,0,1,0,0],
-  [0,1,0,0,0],
-  [1,0,0,0,0],
-  [1,1,1,1,1],
-];
-var letter7 = [
-  [1,1,1,1,1],
-  [0,0,0,0,1],
-  [0,0,0,1,0],
-  [0,0,1,0,0],
-  [0,0,1,0,0],
-  [0,0,1,0,0],
-  [0,0,1,0,0],
-  [0,0,1,0,0],
-];
-
-function drawLetter(letter, text, initialPositionLeft, initialPositionTop){
-  for(var i = 0; i < letter.length; i++){
-    for(var j=0; j < letter[i].length; j++){
-      if(letter[i][j] !== 0){
-        var elemSpan = d.createElement('span');
-        elemSpan.style.cssText = 'left:' + (initialPositionLeft + (j * 14)) + 'px;\
-          top:' + (initialPositionTop + (i * 14)) + 'px;\
-          animation-name:slidein' + getRandomInt(0,19);
-        // if(letter[i][j] !== 0){
-        //   var newContent = document.createTextNode(text);
-        //   elemSpan.appendChild(newContent);
-          elemSpan.className = 'ball';
-        // } else {
-        //   elemSpan.innerHTML = '&nbsp;'
-        // }
-        d.body.appendChild(elemSpan);
-      }
-    }
-  }
+var letters = {
+	'0' : [
+		  [0,1,1,1,0],
+		  [1,0,0,0,1],
+		  [1,0,0,0,1],
+		  [1,0,0,0,1],
+		  [1,0,0,0,1],
+		  [1,0,0,0,1],
+		  [1,0,0,0,1],
+		  [0,1,1,1,0]],
+	'1' : [
+		  [0,0,1,0,0],
+		  [0,1,1,0,0],
+		  [0,0,1,0,0],
+		  [0,0,1,0,0],
+		  [0,0,1,0,0],
+		  [0,0,1,0,0],
+		  [0,0,1,0,0],
+		  [0,1,1,1,0]],
+	'2' : [
+		  [0,1,1,1,0],
+		  [1,0,0,0,1],
+		  [0,0,0,0,1],
+		  [0,0,0,1,0],
+		  [0,0,1,0,0],
+		  [0,1,0,0,0],
+		  [1,0,0,0,0],
+		  [1,1,1,1,1]],
+	'7' : [
+		  [1,1,1,1,1],
+		  [0,0,0,0,1],
+		  [0,0,0,1,0],
+		  [0,0,1,0,0],
+		  [0,0,1,0,0],
+		  [0,0,1,0,0],
+		  [0,0,1,0,0],
+		  [0,0,1,0,0]],
+	'B' : [
+		  [1,1,1,1,0],
+		  [1,0,0,0,1],
+		  [1,0,0,0,1],
+		  [1,1,1,1,0],
+		  [1,0,0,0,1],
+		  [1,0,0,0,1],
+		  [1,0,0,0,1],
+		  [1,1,1,1,0]],
+	'o' : [
+		  [0,0,0,0,0],
+		  [0,0,0,0,0],
+		  [0,0,0,0,0],
+		  [0,1,1,1,0],
+		  [1,0,0,0,1],
+		  [1,0,0,0,1],
+		  [1,0,0,0,1],
+		  [0,1,1,1,0]],
+	'n' : [
+		  [0,0,0,0,0],
+		  [0,0,0,0,0],
+		  [0,0,0,0,0],
+		  [1,1,1,1,0],
+		  [1,0,0,0,1],
+		  [1,0,0,0,1],
+		  [1,0,0,0,1],
+		  [1,0,0,0,1]],
+	'a' : [
+		  [0,0,0,0,0],
+		  [0,0,0,0,0],
+		  [0,0,0,0,0],
+		  [0,1,1,1,0],
+		  [0,0,0,0,1],
+		  [0,1,1,1,1],
+		  [1,0,0,0,1],
+		  [0,1,1,1,1]],
+	'e' : [
+		  [0,0,0,0,0],
+		  [0,0,0,0,0],
+		  [0,0,0,0,0],
+		  [0,1,1,1,0],
+		  [1,0,0,0,1],
+		  [1,1,1,1,0],
+		  [1,0,0,0,0],
+		  [0,1,1,1,1]],
+	'é' : [
+		  [0,0,0,1,0],
+		  [0,0,1,0,0],
+		  [0,0,0,0,0],
+		  [0,1,1,1,0],
+		  [1,0,0,0,1],
+		  [1,1,1,1,0],
+		  [1,0,0,0,0],
+		  [0,1,1,1,1]]
+	};
+	
+function drawLetter(letterName, initialPositionLeft, initialPositionTop, ballSize){
+	var letter = letters[letterName];
+	for(var i = 0; i < letter.length; i++){
+		for(var j=0; j < letter[i].length; j++){
+			if(letter[i][j] !== 0){
+				var elemSpan = d.createElement('span');
+				elemSpan.style.cssText = 'left:' + (initialPositionLeft + (j * ballSize)) + 'px;\
+				top:' + (initialPositionTop + (i * ballSize)) + 'px;\
+				width:' + ballSize + 'px; height:' + ballSize + 'px;border-radius: ' + (ballSize / 2) + 'px;\
+				animation-name:slidein' + getRandomInt(0,19);
+				d.body.appendChild(elemSpan);
+			}
+		}
+	}
 }
-var h = window.innerHeight;
-var w = window.innerWidth;
-var startLeft = (w / 2) - (320 / 2);
-var startTop = (h / 2) - (16 * 4);
-drawLetter(letter2, "2", startLeft + 0, startTop);
-drawLetter(letter0, "0", startLeft + 80, startTop);
-drawLetter(letter1, "1", startLeft + 160, startTop);
-drawLetter(letter7, "7", startLeft + 240, startTop);
+
+function drawWord(word, positionTop, ballSize){	
+	var w = window.innerWidth;
+	var wordLetters = word.split('');
+	var letterWidth = (ballSize + 2) * 5;
+	var startLeft = (w / 2) - ((letterWidth * wordLetters.length) / 2);
+	for (var i = 0; i < wordLetters.length; i++){
+		if(wordLetters[i] != ' '){
+			drawLetter(wordLetters[i], startLeft + (i * letterWidth), positionTop, ballSize);
+		}
+	}
+}
+
+var startTop = (window.innerHeight / 2) - (16 * 4);
+drawWord("Bonne année", startTop - 80, 6);
+drawWord("2017", startTop, 14);
 
 var snowflakesDuration = [];
 
