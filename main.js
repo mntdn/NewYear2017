@@ -103,7 +103,7 @@ var letters = {
 		  [1,0,0,0,0],
 		  [0,1,1,1,1]]
 	};
-	
+
 function drawLetter(letterName, initialPositionLeft, initialPositionTop, ballSize){
 	var letter = letters[letterName];
 	for(var i = 0; i < letter.length; i++){
@@ -113,14 +113,14 @@ function drawLetter(letterName, initialPositionLeft, initialPositionTop, ballSiz
 				elemSpan.style.cssText = 'left:' + (initialPositionLeft + (j * ballSize)) + 'px;\
 				top:' + (initialPositionTop + (i * ballSize)) + 'px;\
 				width:' + ballSize + 'px; height:' + ballSize + 'px;border-radius: ' + (ballSize / 2) + 'px;\
-				animation-name:slidein' + getRandomInt(0,19);
+				animation-name:slidein' + getRandomInt(0,29) + '; animation-duration: ' + getRandom(1,3) + 's;';
 				d.body.appendChild(elemSpan);
 			}
 		}
 	}
 }
 
-function drawWord(word, positionTop, ballSize){	
+function drawWord(word, positionTop, ballSize){
 	var w = window.innerWidth;
 	var wordLetters = word.split('');
 	var letterWidth = (ballSize + 2) * 5;
@@ -133,15 +133,15 @@ function drawWord(word, positionTop, ballSize){
 }
 
 var startTop = (window.innerHeight / 2) - (16 * 4);
-drawWord("Bonne année", startTop - 80, 6);
+drawWord("Bonne année", startTop - 100, 8);
 drawWord("2017", startTop, 14);
 
 var snowflakesDuration = [];
 
 window.onload = function() {
     window.setTimeout(function() {
-        document.getElementById("message").innerHTML = "Bonne année";
-    }, 2500);
+        document.getElementById("signature").className = "reveal";
+    }, 3000);
 };
 
 for(var i = 0; i < 190; i++){

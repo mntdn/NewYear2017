@@ -2,6 +2,23 @@ body{
     background-color: #0B11BD;
 }
 
+#signature {
+    font-family: 'Caveat', cursive;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 70px;
+    left: 0px;
+    color: white;
+    font-size: 60px;
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+}
+
+.reveal {
+    opacity: 1 !important;
+}
+
 span {
     position: fixed;
     z-index: 4;
@@ -59,24 +76,3 @@ span:hover{
     top: 0;
   }
 }
-/*
-@keyframes slidein1 {
-  from {
-    left: 0;
-    top: 0;
-  }
-}
-
-@keyframes slidein2 {
-  from {
-    left: 500px;
-    top: 300px;
-  }
-}
-
-@keyframes slidein3 {
-  from {
-    left: 238px;
-    top: 343px;
-  }
-}*/

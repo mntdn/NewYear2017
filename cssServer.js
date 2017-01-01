@@ -11,7 +11,7 @@ function getRandomInt(min, max) {
 
 app.get('/css', function (req, res) {
   var finalResult = '';
-  for(var i = 0; i < 20; i++){
+  for(var i = 0; i < 30; i++){
     finalResult += '@keyframes slidein'+i+' {\
       from {\
         left: '+getRandomInt(0,100)+'%;\
